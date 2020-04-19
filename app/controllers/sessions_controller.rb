@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
         message  = "Account not activated. "
         message += "Check your email for the activation link."
         flash[:warning] = message
+        @user.send_activation_email
         redirect_to root_url
       end
     else
